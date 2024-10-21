@@ -1,4 +1,4 @@
-module JKFLIPFLOPUSINGIFELSE(q, qb,j,k,clock,reset);
+module JKFLIPFLOP(q, qb,j,k,clock,reset);
     input j,k,clock,reset;
     output reg q, qb;
 	 
@@ -11,7 +11,17 @@ always @ (posedge (clock))
                qb <=qb;
             end   
         
-else
- //Write logic for JK flipflop using if else statement for four conditions
-            
+	    else if(j!=k)
+		    begin
+		    q<=j;
+		    qb<=qb;
+		    end
+	    else if(j==1 && k==1)
+		    begin
+		    q<= ~q;
+		    qb <= ~qb;
+		    end
+    end
+end
 endmodule
+	
